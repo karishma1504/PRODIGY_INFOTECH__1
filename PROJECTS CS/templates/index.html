@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Caesar Cipher | Secure Encoding</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Fira Code', monospace;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.1);
+      border: 1px solid #2f2f2f;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 25px;
+      color: #00e5ff;
+      letter-spacing: 1px;
+    }
+
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+      color: #cccccc;
+    }
+
+    textarea, input {
+      width: 100%;
+      background: #181818;
+      color: #00e5ff;
+      border: 1px solid #333;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      flex: 1;
+      padding: 10px;
+      background-color: #00e5ff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-right: 10px;
+    }
+
+    button:last-child {
+      margin-right: 0;
+      background-color: #ff3d00;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .result {
+      background-color: #101010;
+      padding: 15px;
+      border-left: 4px solid #00e5ff;
+      margin-top: 20px;
+      color: #e0e0e0;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🔐 Caesar Cipher Encryption/Decryption Tool</h1>
+    <form method="post">
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="4" required></textarea>
+
+      <label for="shift">Shift Value</label>
+      <input type="number" name="shift" id="shift" required>
+
+      <div class="actions">
+        <button type="submit" name="action" value="encrypt">Encrypt</button>
+        <button type="submit" name="action" value="decrypt">Decrypt</button>
+      </div>
+    </form>
+
+    {% if result %}
+    <div class="result">
+      <strong>Result:</strong><br>{{ result }}
+    </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>

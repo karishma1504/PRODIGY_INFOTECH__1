@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🕶️ Image Encryption Hacker Tool</title>
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #00ffcc;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #ff0099;
+        }
+        .box {
+            border: 2px dashed #00ffcc;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+        }
+        input[type="file"], select {
+            padding: 10px;
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #222;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            cursor: pointer;
+        }
+        img {
+            max-width: 40%;
+            margin-top: 20px;
+            border: 2px solid #00ffcc;
+        }
+    </style>
+</head>
+<body>
+    <h1>💻 Hacker Pixel Encryptor</h1>
+    <div class="box">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required><br><br>
+            <select name="operation">
+                <option value="encrypt">Encrypt Image</option>
+                <option value="decrypt">Decrypt Image</option>
+            </select><br><br>
+            <button type="submit">Execute</button>
+        </form>
+    </div>
+
+    {% if original %}
+        <h2>📷 Original Image</h2>
+        <img src="{{ url_for('send_file', filename=original) }}">
+    {% endif %}
+
+    {% if result %}
+        <h2>🔐 Processed Image</h2>
+        <img src="{{ url_for('send_file', filename=result.split('/')[-1]) }}">
+    {% endif %}
+</body>
+</html>
